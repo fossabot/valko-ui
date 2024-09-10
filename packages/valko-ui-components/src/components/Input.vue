@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import type { InputProps } from '#valkoui/types/Input'
 import type { SlotStyles } from '#valkoui/types/common'
 import styles from '#valkoui/styles/Input.styles.ts'
@@ -32,24 +32,10 @@ const updateValue = (e: Event) => {
 }
 
 const onFocus = (event: Event) => {
-  if (!props.disabled) {
-    emit('focus', event)
-  }
+  if (!props.disabled) emit('focus', event)
 }
 
-const clearInput = () => {
-  emit('update:modelValue', '')
-}
-
-onMounted(() => {
-  if (inputRef.value) {
-    inputRef.value.addEventListener('click', () => {
-      if (!props.disabled && !props.readonly) {
-        emit('update:modelValue', props.modelValue)
-      }
-    })
-  }
-})
+const clearInput = () => emit('update:modelValue', '')
 </script>
 
 <template>

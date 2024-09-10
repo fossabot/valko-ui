@@ -34,7 +34,7 @@ export interface DataTableInput {
 }
 
 export interface DataTableProps extends TableProps {
-  selection: TableItem[] | TableItem;
+  selection?: TableItem[] | TableItem;
   isAllSelected?: boolean | null;
   filters?: Filter[];
   sort?: Sort;
