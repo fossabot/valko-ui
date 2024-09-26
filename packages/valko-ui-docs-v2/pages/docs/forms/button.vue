@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useNotification, type ButtonProps, type TableItem } from '@valko-ui/components'
+import type { ButtonProps, TableItem } from '@valko-ui/components'
 
 const form = ref<ButtonProps>({
   color: 'primary',
@@ -142,13 +141,13 @@ const onClick = () => useNotification({ text: 'Clicked' })
         v-model="form.size"
         placeholder="Size"
         size="sm"
-        :options="sizeOptions"
+        :options="sizeOptions.general"
       />
       <vk-select
         v-model="form.shape"
         placeholder="Shape"
         size="sm"
-        :options="shapeOptions"
+        :options="shapeOptions.general"
       />
       <vk-checkbox
         v-model="form.disabled"
@@ -205,7 +204,7 @@ const onClick = () => useNotification({ text: 'Clicked' })
         gap
       >
         <vk-button
-          v-for="shape in shapeOptions"
+          v-for="shape in shapeOptions.general"
           :key="shape.value"
           :shape="shape.value"
         >
@@ -218,7 +217,7 @@ const onClick = () => useNotification({ text: 'Clicked' })
         gap
       >
         <vk-button
-          v-for="size in sizeOptions"
+          v-for="size in sizeOptions.general"
           :key="size.value"
           :size="size.value"
         >

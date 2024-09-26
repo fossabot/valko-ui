@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue'
+import { type Ref, ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import type { CollapseItemProps } from '#valkoui/types/Collapse'
 import type { SlotStyles } from '#valkoui/types/common'
